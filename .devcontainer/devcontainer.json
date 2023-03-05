@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "Node.js & TypeScript",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-16-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers-contrib/features/deno-asdf:2": {}
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "zsh": {
+      "enabled": true
+    },
+    "vscode": {
+      "settings": {
+        "deno.enable": true,
+        "deno.lint": true,
+        "editor.defaultFormatter": "denoland.vscode-deno",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        // Deprecated, but latest config does not work correctly. Somethong wrong.
+        "terminal.integrated.shell.linux": "/bin/zsh"
+      },
+      "extensions": [
+        "denoland.vscode-deno",
+        "eamodio.gitlens",
+        "GitHub.vscode-pull-request-github",
+        "richie5um2.vscode-sort-json",
+        "bungcip.better-toml"
+      ]
+    }
+  },
+
+  "postCreateCommand": "chmod +x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh",
+
+  "runArgs": [
+    "--network=host",
+    "--cpus=8",
+    "--memory=56g"
+  ]
+}
