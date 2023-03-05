@@ -1,14 +1,18 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-in-docker
 {
-  "name": "Node.js & TypeScript",
+  "name": "supaFresh",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-16-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers-contrib/features/deno-asdf:2": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers-contrib/features/deno-asdf:2": {},
+    "ghcr.io/devcontainers-contrib/features/typescript:2": {},
+    // Did not work when using Docker in Docker (gotrue became unhealthy)
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
 
   // Configure tool-specific properties.
@@ -25,7 +29,7 @@
         "editor.tabSize": 2,
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
-        // Deprecated, but latest config does not work correctly. Somethong wrong.
+        // Deprecated, but latest config does not work correctly somehow.
         "terminal.integrated.shell.linux": "/bin/zsh"
       },
       "extensions": [
