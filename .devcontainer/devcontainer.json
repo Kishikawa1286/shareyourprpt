@@ -5,22 +5,20 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "denoland.vscode-deno",
         "eamodio.gitlens",
         "GitHub.vscode-pull-request-github",
         "richie5um2.vscode-sort-json",
-        "bungcip.better-toml"
+        "bungcip.better-toml",
+        "astro-build.astro-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "unional.vscode-sort-package-json",
+        "dbaeumer.vscode-eslint"
       ],
       "settings": {
-        // https://github.com/denoland/fresh/issues/788#issuecomment-1257126508
-        "deno.config": "./deno/deno.json",
-        "deno.enable": true,
-        "deno.importMap": "./deno/import_map.json",
-        "deno.lint": true,
         "editor.codeActionsOnSave": {
           "source.organizeImports": true
         },
-        "editor.defaultFormatter": "denoland.vscode-deno",
         "editor.detectIndentation": false,
         "editor.formatOnSave": true,
         "editor.insertSpaces": true,
@@ -34,7 +32,6 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers-contrib/features/deno-asdf:2": {},
     "ghcr.io/devcontainers-contrib/features/typescript:2": {},
     "ghcr.io/devcontainers/features/common-utils:2": {},
     // Did not work when using Docker in Docker (gotrue became unhealthy)
@@ -46,9 +43,5 @@
   "image": "mcr.microsoft.com/devcontainers/base:bullseye",
   "name": "supaFresh",
   "postCreateCommand": "chmod +x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh",
-  "runArgs": [
-    "--network=host",
-    "--cpus=8",
-    "--memory=56g"
-  ]
+  "runArgs": ["--network=host", "--cpus=8", "--memory=56g"]
 }

@@ -5,14 +5,20 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "base64-arraybuffer": "https://esm.sh/base64-arraybuffer@1.0.2",
     "canvas-confetti": "https://esm.sh/canvas-confetti@1.6.0",
+    "expiry-map": "https://esm.sh/expiry-map@2.0.0",
     "html2canvas": "https://esm.sh/html2canvas@1.4.1",
-    "preact": "https://esm.sh/preact@10.11.0",
+    "preact": "https://esm.sh/preact@10.13.0",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4",
-    "preact/": "https://esm.sh/preact@10.11.0/",
+    "preact/": "https://esm.sh/preact@10.13.0/",
     "react-resizable": "https://esm.sh/react-resizable@3.0.4",
-    "std/": "https://deno.land/std@0.160.0/",
-    "supabase": "https://esm.sh/@supabase/supabase-js@2.2.0",
-    "twind": "https://esm.sh/twind@0.16.17",
-    "twind/": "https://esm.sh/twind@0.16.17/"
+    "std/": "https://deno.land/std@0.178.0/",
+    "supabase": "https://esm.sh/@supabase/supabase-js@2.10.0",
+    "twind": "https://esm.sh/twind@0.16.19",
+    "twind/": "https://esm.sh/twind@0.16.19/",
+    "chatgpt": "https://esm.sh/chatgpt@5.0.8",
+
+    "utils/": "./utils/",
+    "islands/": "./islands/",
+    "client_provider/": "./client_provider/"
   }
 }
