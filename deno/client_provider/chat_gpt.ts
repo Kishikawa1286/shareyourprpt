@@ -1,5 +1,6 @@
-import { ChatGPTUnofficialProxyAPI, ChatMessage } from 'chatgpt'
-import ExpiryMap from 'expiry-map'
+import { ChatGPTUnofficialProxyAPI } from "client_provider/chatgpt_api/chatgpt_unofficial_proxy_api.ts";
+import ExpiryMap from 'expiry-map';
+import type { ChatMessage } from './chatgpt_api/types.ts';
 
 const cache = new ExpiryMap(10000) // 10 s
 const CACHE_ACCESS_TOKEN_KEY = 'accessToken'
@@ -23,7 +24,7 @@ export const getChatGPTaccessToken = async (): Promise<GetChatGPTaccessTokenResu
   if (cacheAccessToken) {
     return cacheAccessToken
   }
-  const resp = await fetch('https://chat.openai.com/api/auth/session')
+  const resp = await fetch('https://chat.openai.com/api/auth/session', { mode: "no-cors" })
   if (resp.status === 403) {
     return { success: false, accessToken: '' }
   }
