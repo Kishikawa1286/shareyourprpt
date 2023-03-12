@@ -9,7 +9,7 @@ export default function Login() {
   const handleEmailLogin = async () => {
     const { error } = await supabase.auth.signInWithPassword({
       email: 'jon@supabase.com',
-      password: 'password'
+      password: 'password',
     });
 
     if (error) {
@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleGitHubLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'github'
+      provider: 'github',
     });
 
     if (error) {

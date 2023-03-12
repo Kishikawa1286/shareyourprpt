@@ -10,6 +10,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@next/next/recommended',
         'prettier',
+        'plugin:tailwindcss/recommended',
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
@@ -20,27 +21,23 @@ module.exports = {
         'prettier/prettier': 'error',
       },
       files: [
-        'src/**/*.ts',
-        'src/**/*.tsx',
-        'emails/**/*.ts',
-        'emails/**/*.tsx',
+        'app/**/*.ts',
+        'app/**/*.tsx',
+        'components/**/*.ts',
+        'components/**/*.tsx',
+        'pages/**/*.ts',
+        'pages/**/*.tsx',
+        'utils/**/*.ts',
+        'utils/**/*.tsx',
       ],
     },
     {
-      extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier',
-      ],
+      extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: tsConfigs,
       },
-      plugins: [
-        '@typescript-eslint',
-        'prettier',
-        'plugin:playwright/playwright-test',
-      ],
+      plugins: ['@typescript-eslint', 'prettier'],
       rules: {
         'prettier/prettier': 'error',
       },

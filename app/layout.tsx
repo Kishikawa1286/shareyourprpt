@@ -1,12 +1,15 @@
 import 'server-only';
 
-import Login from '../components/login';
+import Header from '../components/header/header';
 import SupabaseListener from '../components/supabase-listener';
 import SupabaseProvider from '../components/supabase-provider';
 import { createServerClient } from '../utils/supabase-server';
-import './globals.css';
+import './globals.scss';
 
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
+import ContentWrapper from '../components/content-wrapper';
+import Footer from '../components/footer/footer';
+import GlobalWrapper from '../components/global-wrapper';
 import type { Database } from '../db_types';
 
 export type TypedSupabaseClient = SupabaseClient<Database>;
@@ -14,15 +17,11 @@ export type TypedSupabaseClient = SupabaseClient<Database>;
 // do not cache this layout
 export const revalidate = 0;
 
-export default async function RootLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const supabase = createServerClient();
 
   const {
-    data: { session }
+    data: { session },
   } = await supabase.auth.getSession();
 
   return (
@@ -33,11 +32,18 @@ export default async function RootLayout({
       */}
       <head />
       <body>
-        <SupabaseProvider session={session}>
-          <SupabaseListener serverAccessToken={session?.access_token} />
-          <Login />
-          {children}
-        </SupabaseProvider>
+        <GlobalWrapper>
+          <Header />
+
+          <ContentWrapper>
+            <SupabaseProvider session={session}>
+              <SupabaseListener serverAccessToken={session?.access_token} />
+              {children}
+            </SupabaseProvider>
+          </ContentWrapper>
+
+          <Footer />
+        </GlobalWrapper>
       </body>
     </html>
   );

@@ -11,8 +11,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>app/page.tsx</code>
+          Get started by editing <code className={styles.code}>app/page.tsx</code>
         </p>
 
         <div className={styles.grid}>
