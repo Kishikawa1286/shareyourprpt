@@ -5,6 +5,6 @@
   },
   "importMap": "./import_map.json",
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/ dev.ts"
+    "start": "deno run -A --watch=dev.ts --allow-net=api.openai.com dev.ts"
   }
 }

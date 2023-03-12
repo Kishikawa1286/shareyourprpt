@@ -15,11 +15,7 @@
     "supabase": "https://esm.sh/@supabase/supabase-js@2.10.0",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
-    "chatgpt": "https://esm.sh/chatgpt@5.0.8",
-    "eventsource-parser": "https://esm.sh/eventsource-parser@0.1.0",
-    "p-timeout": "https://esm.sh/p-timeout@6.1.1",
-    "uuid": "https://esm.sh/uuid@9.0.0",
-    "keyv": "https://esm.sh/keyv@4.5.2",
+    "openai-streams": "https://esm.sh/openai-streams@4.1.0",
 
     "utils/": "./utils/",
     "islands/": "./islands/",
