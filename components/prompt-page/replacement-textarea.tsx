@@ -6,11 +6,12 @@ export default function ReplacementTextarea({ onChange }: { onChange?: (value: s
   const [value, setValue] = useState('');
 
   return (
-    <div className="mx-1 mb-4 overflow-hidden rounded-md bg-gray-900">
+    <div className="mx-1 mb-4 overflow-hidden rounded-md">
       <textarea
-        className="block w-full p-4 text-xs text-gray-400"
+        className="block w-full bg-gray-900 p-4 text-xs text-gray-400"
         style={{ whiteSpace: 'pre-wrap', resize: 'none' }}
         value={value}
+        placeholder="Replace the highlighted part with your own..."
         onChange={(event) => {
           setValue(event.target.value);
           if (onChange) {

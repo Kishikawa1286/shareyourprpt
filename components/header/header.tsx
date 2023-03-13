@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex  items-center justify-between bg-gray-900 p-3">
       <h1 className="text-lg font-medium text-white">Share Your Prompt</h1>
 
-      <nav>
+      <nav className="md:mr-4">
         <HamburgerMenu />
       </nav>
 

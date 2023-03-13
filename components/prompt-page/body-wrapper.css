@@ -1,0 +1,21 @@
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .left {
+    margin-right: 8px;
+  }
+  .right {
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    display: block;
+  }
+  .right {
+    display: none;
+  }
+}

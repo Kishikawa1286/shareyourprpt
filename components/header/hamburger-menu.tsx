@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactHamburgerMenu from 'react-hamburger-menu';
 
 const HamburgerMenuItem = ({ children, href }: { children?: React.ReactNode; href?: string }) => (
@@ -11,13 +11,26 @@ const HamburgerMenuItem = ({ children, href }: { children?: React.ReactNode; hre
 
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuRef]);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div>
+    <div ref={menuRef}>
       <ReactHamburgerMenu
         isOpen={isOpen}
         menuClicked={handleClick}
