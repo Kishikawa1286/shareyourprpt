@@ -12,7 +12,9 @@ export default function BodyWrapper({
   return (
     <div className="wrapper grow lg:px-28">
       <div className="left grow">{left}</div>
-      <div className="right grow">{right}</div>
+      <div className="right" style={{ flexBasis: '50%' }}>
+        {right}
+      </div>
     </div>
   );
 }
