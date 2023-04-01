@@ -68,7 +68,8 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "christian-kohler.npm-intellisense",
-        "unional.vscode-sort-package-json"
+        "unional.vscode-sort-package-json",
+        "ms-vscode.vscode-typescript-next"
       ]
     }
   }

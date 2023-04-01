@@ -1,2 +1,5 @@
 supabase/functions
 supabase/lib
+
+db_types.ts
+middleware.tsx

@@ -3,7 +3,7 @@ import 'server-only';
 import Header from '../components/header/header';
 import SupabaseListener from '../components/supabase-listener';
 import SupabaseProvider from '../components/supabase-provider';
-import { createServerClient } from '../utils/supabase-server';
+import { createServerClient } from '../utils/supabase/supabase-server';
 import './globals.scss';
 
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
@@ -34,12 +34,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <GlobalWrapper>
           <Header />
 
-          <div className="grow bg-gray-100">
-            <SupabaseProvider session={session}>
-              <SupabaseListener serverAccessToken={session?.access_token} />
-              {children}
-            </SupabaseProvider>
-          </div>
+          <SupabaseProvider session={session}>
+            <SupabaseListener serverAccessToken={session?.access_token} />
+            {children}
+          </SupabaseProvider>
 
           <Footer />
         </GlobalWrapper>

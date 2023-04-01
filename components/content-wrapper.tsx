@@ -5,11 +5,11 @@ import 'server-only';
  */
 export default function ContentWrapper({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="bg-gray-100 md:py-8">
+    <div className="h-full bg-gray-100 md:py-4">
       <div
-        className="w-full
-        rounded-md bg-white
-        md:mx-auto md:h-full md:py-4
+        className="h-full
+        w-full rounded-md
+        bg-white md:mx-auto md:py-4
         "
       >
         {children}
