@@ -1,7 +1,7 @@
 'use client';
 
 import { ChatCompletionRequestMessage } from 'openai-streams';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Scrollbar } from 'react-scrollbars-custom';
 import { getAPIkeyStorage, setAPIkeyStorage } from '../../utils/openai/api-key-storage';
 import { chatStream } from '../../utils/openai/chat-stream';
@@ -28,12 +28,16 @@ const ChatMessage = ({ message }: { message: ChatCompletionRequestMessage }) => 
 );
 
 export default function ChatPart() {
-  const [apiKey, setApiKey] = useState(getAPIkeyStorage() ?? '');
+  const [apiKey, setApiKey] = useState('');
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
   const [messageUpdating, setMessageUpdating] = useState<boolean>(false);
   const [textareaValue, setTextAreaValue] = useState<string>('');
   const [textareaDisabled, setTextAreaDisabled] = useState<boolean>(false);
   const [apiKeyInputValue, setApiKeyInputValue] = useState<string>('');
+
+  useEffect(() => {
+    setApiKey(getAPIkeyStorage() ?? '');
+  });
 
   const sendMessage = async (userMessageContent: string) => {
     if (apiKey === '') {

@@ -5,11 +5,9 @@ import { createContext, useContext, useState } from 'react';
 import type { TypedSupabaseClient } from '../app/layout';
 import { createBrowserClient } from '../utils/supabase/supabase-browser';
 
-type MaybeSession = Session | null;
-
 type SupabaseContext = {
   supabase: TypedSupabaseClient;
-  session: MaybeSession;
+  session: Session | null;
 };
 
 const Context = createContext<SupabaseContext | null>(null);
@@ -19,7 +17,7 @@ export default function SupabaseProvider({
   session,
 }: {
   children: React.ReactNode;
-  session: MaybeSession;
+  session: Session | null;
 }) {
   const [supabase] = useState(() => createBrowserClient());
 

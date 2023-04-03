@@ -9,7 +9,13 @@ import { useSupabase } from './supabase-provider';
 // in order to re-render when the user's session changes
 // #elegant!
 export default function SupabaseListener({ serverAccessToken }: { serverAccessToken?: string }) {
-  const { supabase } = useSupabase();
+  const context = useSupabase();
+  if (!context) {
+    console.error('SupabaseListener must be a child of SupabaseProvider');
+    return null;
+  }
+  const { supabase } = context;
+
   const router = useRouter();
 
   useEffect(() => {

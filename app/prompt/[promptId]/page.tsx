@@ -1,12 +1,18 @@
 import 'server-only';
 
+import Client from '../../../components/client';
 import ContentWrapper from '../../../components/content-wrapper';
 import BodyWrapper from '../../../components/prompt-page/body-wrapper';
 import ChatPart from '../../../components/prompt-page/chat-part';
-
 import PromptDescriptionPart from '../../../components/prompt-page/prompt-description-part';
+import { createServerClient } from '../../../utils/supabase/supabase-server';
 
-export default function PromotPage({ params }: { params: { promptId: string } }) {
+export default async function PromotPage({ params }: { params: { promptId: string } }) {
+  const supabase = createServerClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <BodyWrapper
       left={
@@ -22,7 +28,9 @@ export default function PromotPage({ params }: { params: { promptId: string } })
       }
       right={
         <ContentWrapper>
-          <ChatPart />
+          <Client session={session}>
+            <ChatPart />
+          </Client>
         </ContentWrapper>
       }
     />
